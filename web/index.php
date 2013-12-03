@@ -26,7 +26,7 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.level' => Logger::WARNING
 ));
 
-$app->get('/', function () use ($app) {
+$app->get('/posts', function () use ($app) {
     $posts = $app['db']->fetchAll('SELECT * FROM posts');
     return $app['twig']->render('index.twig', ['posts' => $posts]);
 });
